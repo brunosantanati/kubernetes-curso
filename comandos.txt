@@ -1,3 +1,23 @@
-Subir o container baseado no arquivo docker-compose.yaml:
+- Subir o container baseado no arquivo docker-compose.yaml:
 
 sudo docker-compose up -d
+
+- Ver containers rodando:
+
+sudo docker ps
+
+- Criar imagem customizada:
+
+sudo docker build -t "aplicacao-loja:v1" .
+
+- Criar tabelas no container do banco:
+
+sudo docker exec -it projeto_db1 sh
+mysql -u root
+use loja
+//comandos sql aqui
+
+- Endereço da aplicação
+
+http://localhost:8080
+

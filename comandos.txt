@@ -36,3 +36,42 @@ http://localhost:8080
 
 https://hub.docker.com/r/rafanercessian/aplicacao-loja/
 
+================================================================================================
+
+- Instalação do Minikube:
+
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+No Linux:
+
+sudo apt-get install curl
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+- Instalação kubectl
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+- Iniciar Minikube:
+
+minikube start
+
+- Comunicação com o cluster(cria pod no caso abaixo):
+
+kubectl create -f aplicacao.yaml
+
+- Listar pods:
+
+kubectl get pods
+
+- Deletar pod chamado aplicacao:
+
+kubectl delete pods aplicacao
+
+- Reload terminal
+
+source ~/.bashrc

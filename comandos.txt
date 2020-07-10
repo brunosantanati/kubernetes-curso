@@ -1,10 +1,15 @@
 - Subir o container baseado no arquivo docker-compose.yaml:
 
 sudo docker-compose up -d
+sudo docker-compose up --force-recreate db
 
 - Ver containers rodando:
 
 sudo docker ps
+
+- Matar container
+
+sudo docker kill projeto_web_1
 
 - Criar imagem customizada:
 
@@ -20,4 +25,8 @@ use loja
 - Endereço da aplicação
 
 http://localhost:8080
+
+- Link da imagem da parte web/aplicação loja:
+
+https://hub.docker.com/r/rafanercessian/aplicacao-loja/
 

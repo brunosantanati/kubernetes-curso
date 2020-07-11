@@ -1,19 +1,29 @@
+DOCKER
+
 - Subir o container baseado no arquivo docker-compose.yaml:
 
 sudo docker-compose up -d
 sudo docker-compose up --force-recreate db
 
+-------------------------------------
+
 - Ver containers rodando:
 
 sudo docker ps
+
+-------------------------------------
 
 - Matar container
 
 sudo docker kill projeto_web_1
 
+-------------------------------------
+
 - Criar imagem customizada:
 
 sudo docker build -t "aplicacao-loja:v1" .
+
+-------------------------------------
 
 - Criar tabelas no container do banco:
 
@@ -28,15 +38,21 @@ insert into categorias (nome) values ("Futebol"), ("Volei"), ("Tenis");
 alter table produtos add column categoria_id integer;
 update produtos set categoria_id = 1;
 
+-------------------------------------
+
 - Endereço da aplicação
 
 http://localhost:8080
+
+-------------------------------------
 
 - Link da imagem da parte web/aplicação loja:
 
 https://hub.docker.com/r/rafanercessian/aplicacao-loja/
 
 ================================================================================================
+
+KUBERNETES
 
 - Instalação do Minikube:
 
@@ -48,6 +64,8 @@ sudo apt-get install curl
 
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo mv minikube /usr/local/bin/
 
+-------------------------------------
+
 - Instalação kubectl
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -56,22 +74,64 @@ chmod +x ./kubectl
 
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-- Iniciar Minikube:
+-------------------------------------
+
+- Iniciar Minikube (rodar o cluster):
 
 minikube start
 
-- Comunicação com o cluster(cria pod no caso abaixo):
+- Parar Minikube (para o cluster):
+
+minikube stop
+
+-------------------------------------
+
+- Para limpar e apagar:
+
+minikube delete
+
+-------------------------------------
+
+- Especificar que queremos trabalhar com o Minikube:
+
+kubectl config use-context minikube
+
+-------------------------------------
+
+- Comunicação com o cluster(cria Pod no caso abaixo):
 
 kubectl create -f aplicacao.yaml
+
+- Abaixo criar Deployment:
+
+kubectl create -f deployment.yaml
+
+-------------------------------------
 
 - Listar pods:
 
 kubectl get pods
 
+-------------------------------------
+
+- Listar deployments:
+
+kubectl get deployments
+
+-------------------------------------
+
 - Deletar pod chamado aplicacao:
 
 kubectl delete pods aplicacao
 
+- Deletar pode que o Kubernetes subiu(o nome é aleatório):
+
+kubectl delete pods aplicacao-deployment-77bbf4495d-26hhz
+
+-------------------------------------
+
 - Reload terminal
 
 source ~/.bashrc
+
+-------------------------------------

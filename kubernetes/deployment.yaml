@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: aplicacao-deployment
   labels:
-    app: app-deployment
+    app: aplicacao-deployment
 spec:
   selector:
     matchLabels:
-      app: app-deployment
+      app: aplicacao-pod
   template:
     metadata:
       labels:
-        app: app-deployment
+        app: aplicacao-pod
     spec:
       containers:
         - name: container-aplicacao-loja

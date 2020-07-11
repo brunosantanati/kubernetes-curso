@@ -2,32 +2,34 @@ DOCKER
 
 - Subir o container baseado no arquivo docker-compose.yaml:
 
-sudo docker-compose up -d
-sudo docker-compose up --force-recreate db
+docker-compose up -d
+docker-compose up --force-recreate db
 
 -------------------------------------
 
 - Ver containers rodando:
 
-sudo docker ps
+docker ps
 
 -------------------------------------
 
 - Matar container
 
-sudo docker kill projeto_web_1
+docker kill projeto_web_1
+
+docker kill projeto_db_1
 
 -------------------------------------
 
 - Criar imagem customizada:
 
-sudo docker build -t "aplicacao-loja:v1" .
+docker build -t "aplicacao-loja:v1" .
 
 -------------------------------------
 
 - Criar tabelas no container do banco:
 
-sudo docker exec -it projeto_db_1 sh
+docker exec -it projeto_db_1 sh
 mysql -u root
 use loja
 create table produtos (id integer auto_increment primary key, nome varchar(255), preco decimal(10,2));
@@ -106,6 +108,10 @@ kubectl create -f aplicacao.yaml
 
 kubectl create -f deployment.yaml
 
+- Abaixo como criar o Service:
+
+kubectl create -f service.yaml
+
 -------------------------------------
 
 - Listar pods:
@@ -143,6 +149,22 @@ kubectl delete pods aplicacao-deployment-77bbf4495d-26hhz
 - Abrir dashboard:
 
 minikube dashboard
+
+-------------------------------------
+
+- Pegar URL da aplicação rodando no Kubernetes (IP e porta do service):
+
+minikube service aplicacao-service --url
+
+- Testar URL com curl:
+
+curl -L http://172.17.0.2:30005
+
+-------------------------------------
+
+- Listar todos services:
+
+minikube service list
 
 -------------------------------------
 

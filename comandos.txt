@@ -120,6 +120,16 @@ kubectl get deployments
 
 -------------------------------------
 
+- Obter informações dos pods
+
+kubectl describe pods
+
+- Pegar o ip de um pod:
+
+kubectl describe pods | grep IP
+
+-------------------------------------
+
 - Deletar pod chamado aplicacao:
 
 kubectl delete pods aplicacao
@@ -127,6 +137,12 @@ kubectl delete pods aplicacao
 - Deletar pode que o Kubernetes subiu(o nome é aleatório):
 
 kubectl delete pods aplicacao-deployment-77bbf4495d-26hhz
+
+-------------------------------------
+
+- Abrir dashboard:
+
+minikube dashboard
 
 -------------------------------------
 

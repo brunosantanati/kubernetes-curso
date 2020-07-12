@@ -1,17 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aplicacao-deployment
+  creationTimestamp: null
   labels:
-    app: aplicacao-deployment
+    name: aplicacao-pod
+  name: aplicacao-deployment
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: aplicacao-pod
+      name: aplicacao-pod
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: aplicacao-pod
+        name: aplicacao-pod
     spec:
       containers:
         - name: container-aplicacao-loja

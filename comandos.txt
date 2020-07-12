@@ -168,6 +168,12 @@ minikube service list
 
 -------------------------------------
 
+- Converter apps/v1beta1 para apps/v1
+
+kubectl convert -f deployment.yaml --output-version apps/v1
+
+-------------------------------------
+
 - Debug Service:
 
 https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/
